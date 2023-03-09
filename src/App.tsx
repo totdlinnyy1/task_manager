@@ -1,7 +1,8 @@
+import {Box} from '@mantine/core'
 import {FC} from 'react'
 
 const App: FC = () => {
-  return <div></div>
+  return <Box></Box>
 }
 
 export default App
