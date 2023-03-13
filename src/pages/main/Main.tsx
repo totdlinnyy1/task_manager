@@ -1,8 +1,8 @@
 import {Box} from '@mantine/core'
 import {FC} from 'react'
 
-const App: FC = () => {
+const Main: FC = () => {
   return <Box></Box>
 }
 
-export default App
+export default Main
