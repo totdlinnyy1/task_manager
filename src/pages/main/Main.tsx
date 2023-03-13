@@ -1,11 +1,37 @@
-import {Box, Container, Flex, Image, Text, Button} from '@mantine/core'
+import {
+  Box,
+  Container,
+  Flex,
+  Image,
+  Text,
+  Button,
+  Modal,
+  Tabs
+} from '@mantine/core'
+import {useDisclosure} from '@mantine/hooks'
 import {FC} from 'react'
 
 import Header from '../../components/header/Header'
 
 const Main: FC = () => {
+  const [opened, {open, close}] = useDisclosure(false)
   return (
     <Box>
+      <Modal opened={opened} onClose={close} title='О приложении'>
+        <Tabs variant='pills' radius='xs' defaultValue='default' inverted>
+          <Tabs.Panel value='default' pt='xs'>
+            Информация для участника
+          </Tabs.Panel>
+
+          <Tabs.Panel value='manager' pt='xs'>
+            Информация для менеджера
+          </Tabs.Panel>
+          <Tabs.List grow>
+            <Tabs.Tab value='default'>Участник</Tabs.Tab>
+            <Tabs.Tab value='manager'>Менеджер</Tabs.Tab>
+          </Tabs.List>
+        </Tabs>
+      </Modal>
       <Header />
       <Container>
         <Flex justify='space-between'>
@@ -13,7 +39,7 @@ const Main: FC = () => {
             <Text mb={10}>Какая-то информация</Text>
             <Button.Group orientation='vertical'>
               <Button mb={10}>Регистрация</Button>
-              <Button variant='subtle' compact uppercase>
+              <Button variant='subtle' compact uppercase onClick={open}>
                 О приложении
               </Button>
             </Button.Group>
